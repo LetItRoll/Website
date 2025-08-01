@@ -20,6 +20,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Listeners top left bar
+  document.getElementById("letItRoll").addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+  document.getElementById("autoSchool").addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const logo = document.getElementById("siteLogo");
+    if (logo) {
+      logo.style.cursor = "pointer"; // optional: show clickable cursor
+      logo.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    }
+  });
+
   // ===== Hide current page link in menu =====
   let current = window.location.pathname.split("/").pop();
   if (!current) current = "index.html";
