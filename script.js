@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.stopPropagation();
     burger.classList.toggle("active");
     navMenu.classList.toggle("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
   });
 
   document.addEventListener("click", (e) => {
