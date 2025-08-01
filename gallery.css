@@ -1,0 +1,213 @@
+/* Photo Gallery */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(80px, 1fr)
+  ); /* Small thumbs for mobiles */
+  gap: 0.5rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.photo-gallery img {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Hover zoom effect (optional) */
+.photo-gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* Medium devices */
+@media (min-width: 600px) {
+  .photo-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .photo-gallery img {
+    height: 100px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .photo-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .photo-gallery img {
+    height: 120px;
+  }
+}
+
+/* Large devices */
+@media (min-width: 1024px) {
+  .photo-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .photo-gallery img {
+    height: 160px;
+  }
+}
+
+/* Extra-large devices */
+@media (min-width: 1440px) {
+  .photo-gallery img {
+    height: 200px;
+  }
+}
+
+/* Modal1 Overlay */
+.modal1 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal1.open {
+  display: flex;
+}
+
+/* Modal1 Content */
+.modal1-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.modal1-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* Slide-in Animations */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.slide-in-right {
+  animation: slideInFromRight 0.3s ease forwards;
+}
+.slide-in-left {
+  animation: slideInFromLeft 0.3s ease forwards;
+}
+
+/* Glow animation for nav arrow text */
+@keyframes glowIcon {
+  0%,
+  20%,
+  100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9),
+      0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 1);
+  }
+}
+
+/* Close Button fixed at bottom center */
+.modal1-close {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #000;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+/* Navigation Buttons full-height with glowing arrow text */
+.modal1-nav.prev,
+.modal1-nav.next {
+  position: fixed;
+  top: -5vh;
+  width: 3rem;
+  height: 110vh;
+  background: transparent;
+  color: #fff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 1001;
+  animation: glowIcon 3s infinite;
+}
+.modal1-nav.prev {
+  left: 0;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.modal1-nav.next {
+  right: 0;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+/* Mobile Nav Menu */
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background: #1e3a8a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.nav-menu.open {
+  display: flex;
+}
+.nav-menu a {
+  color: #fff;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

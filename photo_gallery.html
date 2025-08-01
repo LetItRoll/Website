@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let It Roll - Photo Gallery</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="gallery.css" />
+    <style>
+      /* Thumbnail Grid */
+    </style>
+  </head>
+  <body>
+    <!-- Title Bar -->
+    <header class="title-bar">
+      <div class="header-content">
+        <h1 class="site-title">Let It Roll</h1>
+        <p class="ADS">Automatic Driving School</p>
+        <p class="slogan">No Gears - No Worries</p>
+      </div>
+      <div class="burger" id="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </header>
+    <nav class="nav-menu" id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="first_lesson.html">Your First Lesson</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="photo_gallery.html">Successful Students</a>
+      <a href="useful.html">Useful Links</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+    </nav>
+    <!-- Photo Gallery Section -->
+    <main>
+      <section class="gallery-section">
+        <h2 class="section-title">Photo Gallery</h2>
+        <p class="gallery-description">
+          A few proud moments from our amazing students!
+        </p>
+        <div class="photo-gallery" id="photoGallery"></div>
+      </section>
+    </main>
+
+    <!-- Modal1 -->
+    <div class="modal1" id="modal1">
+      <button class="modal1-close" id="modal1Close">×</button>
+      <div class="modal1-content" id="modal1Content">
+        <img src="" alt="Gallery Image" id="modal1Image" />
+      </div>
+      <button class="modal1-nav prev" id="modal1Prev">‹</button>
+      <button class="modal1-nav next" id="modal1Next">›</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      &copy; 2025 Let It Roll - All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const burger = document.getElementById("burger");
+        const navMenu = document.getElementById("nav-menu");
+        burger.addEventListener("click", () => {
+          navMenu.classList.toggle("open");
+        });
+      });
+    </script>
+  </body>
+</html>
